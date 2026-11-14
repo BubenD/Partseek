@@ -1,0 +1,5 @@
+# Build-time tools for producing the protected release.
+# Runtime deps are in requirements.txt.
+pyinstaller>=6.0
+pyarmor>=9.0
+pillow>=10.0
