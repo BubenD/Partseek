@@ -1,3 +1,7 @@
+# Partseek — part number search for PDF and CSV files.
+# Copyright (C) 2026 ETS - Expand Technology Solutions.
+# Licensed under the GNU AGPL-3.0-or-later. See the LICENSE file for details.
+
 """Part-number matching rules.
 
 Exact mode: the P/N must stand on its own, so "ABC-123" matches "ABC-123",

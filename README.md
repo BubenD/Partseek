@@ -1,6 +1,8 @@
 ﻿# Partseek
 
-**An Expand Technology Solutions product.** Copyright © 2026 Expand Technology Solutions. All rights reserved.
+[![License: AGPL v3](https://img.shields.io/badge/License-AGPL_v3-blue.svg)](LICENSE)
+
+**By ETS - Expand Technology Solutions.** Free and open-source software, licensed under the **GNU AGPL-3.0-or-later**.
 
 Desktop app that searches a folder and all its subfolders for part numbers (P/N) inside **PDF** and **CSV** files.
 
@@ -44,26 +46,42 @@ py -3 -m venv .venv
 .venv\Scripts\python -m pytest
 ```
 
-### Build a protected release (obfuscated exe + installer)
+### Build the Windows release (standalone exe + installer)
 
-The release build is hardened against reverse engineering. It obfuscates and
-encrypts the Python bytecode with **PyArmor** (adding an anti-tamper runtime),
-bundles it into a single-file exe with **PyInstaller** (carrying the Expand
-Technology Solutions version resource and icon), then wraps it in a Windows
-installer with **Inno Setup**.
+The release is a single-file exe built with **PyInstaller** (carrying the
+ETS version resource and icon), wrapped in a Windows installer with
+**Inno Setup**. The build also runs the Python through **PyArmor** — on an
+open-source project this is just packaging, not a security measure, since the
+source is public; it can be removed if you prefer a plain PyInstaller build.
 
 ```
-rem 1. Protected standalone exe  ->  release_out\Partseek.exe
+rem 1. Standalone exe  ->  release_out\Partseek.exe
 .venv\Scripts\python installer\build_protected.py
 
 rem 2. Windows installer  ->  release_out\Partseek-Setup-1.0.0.exe
 "%LOCALAPPDATA%\Programs\Inno Setup 6\ISCC.exe" installer\Partseek.iss
 ```
 
-Or run both steps at once with **`build_release.bat`**.
+Or run both steps at once with **`build_release.bat`**. Build tools are in
+`requirements-build.txt`. `build_exe.bat` produces a simpler one-file exe.
 
-> **Note on protection.** Obfuscation raises the cost of reverse engineering
-> significantly but no client-side measure makes a program impossible to
-> inspect. For stronger hardening, a commercial PyArmor license enables string
-> encryption (`--mix-str`) and BCC mode — see `installer\build_protected.py`.
-> `build_exe.bat` produces an older, **unprotected** one-file exe.
+## License
+
+Copyright (C) 2026 **ETS - Expand Technology Solutions**.
+
+Partseek is free software released under the **GNU Affero General Public
+License v3.0 or later** (AGPL-3.0). You may use, study, share and modify it
+under those terms; if you distribute it or run a modified version as a network
+service, you must make the corresponding source available under the same
+license. See [LICENSE](LICENSE) for the full text.
+
+### Third-party components
+
+| Component | License |
+|---|---|
+| [PyMuPDF](https://github.com/pymupdf/PyMuPDF) | GNU AGPL-3.0 (or Artifex commercial) |
+| [Qt for Python / PySide6](https://doc.qt.io/qtforpython/) | GNU LGPL-3.0 |
+
+Partseek uses PyMuPDF, which is AGPL-3.0; that is why the combined work is
+distributed under the AGPL-3.0. For a permissively licensed or closed-source
+distribution you would need a commercial PyMuPDF license from Artifex.

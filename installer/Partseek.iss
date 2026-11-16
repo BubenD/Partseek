@@ -7,7 +7,7 @@
 
 #define MyAppName "Partseek"
 #define MyAppVersion "1.0.0"
-#define MyAppPublisher "Expand Technology Solutions"
+#define MyAppPublisher "ETS - Expand Technology Solutions"
 #define MyAppExeName "Partseek.exe"
 
 [Setup]
@@ -19,7 +19,7 @@ AppPublisher={#MyAppPublisher}
 VersionInfoVersion={#MyAppVersion}
 VersionInfoCompany={#MyAppPublisher}
 VersionInfoDescription={#MyAppName} Setup
-VersionInfoCopyright=Copyright (c) 2026 {#MyAppPublisher}. All rights reserved.
+VersionInfoCopyright=Copyright (C) 2026 {#MyAppPublisher}. GNU AGPL-3.0-or-later.
 DefaultDirName={autopf}\{#MyAppName}
 DefaultGroupName={#MyAppName}
 DisableProgramGroupPage=yes

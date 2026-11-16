@@ -1,3 +1,7 @@
+# Partseek — part number search for PDF and CSV files.
+# Copyright (C) 2026 ETS - Expand Technology Solutions.
+# Licensed under the GNU AGPL-3.0-or-later. See the LICENSE file for details.
+
 """Preview panes: rendered PDF pages with highlighted hits, and a CSV table."""
 from __future__ import annotations
 

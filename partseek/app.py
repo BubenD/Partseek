@@ -1,3 +1,7 @@
+# Partseek — part number search for PDF and CSV files.
+# Copyright (C) 2026 ETS - Expand Technology Solutions.
+# Licensed under the GNU AGPL-3.0-or-later. See the LICENSE file for details.
+
 """Partseek main window."""
 from __future__ import annotations
 
@@ -17,7 +21,7 @@ from PySide6.QtWidgets import (
     QStyleOptionViewItem, QTreeWidget, QTreeWidgetItem, QVBoxLayout, QWidget,
 )
 
-from . import __version__, __company__, __copyright__, __product__
+from . import __version__, __company__, __copyright__, __product__, __license__
 from .matcher import Matcher, MatchOptions, split_terms
 from .preview import CsvPreview, PdfPreview, open_externally, show_in_folder
 from .scanner import DRAWING_TYPES, FileResult, Hit, iter_files, search_file
@@ -140,9 +144,12 @@ class MainWindow(QMainWindow):
             "<p>Search PDF and CSV files for part numbers.</p>"
             f"<p><b>{html.escape(__company__)}</b><br>"
             f"{html.escape(__copyright__)}</p>"
-            "<p>This software is proprietary. Unauthorized copying, distribution "
-            "or reverse engineering is prohibited.</p>"
+            "<p>Free and open-source software, licensed under the "
+            "<b>GNU Affero General Public License v3.0</b> or later.</p>"
+            "<p>Uses PyMuPDF (AGPL-3.0) and Qt for Python / PySide6 (LGPL-3.0).</p>"
+            "<p><a href='https://github.com/BubenD/Partseek'>github.com/BubenD/Partseek</a></p>"
         )
+        box.setTextInteractionFlags(Qt.TextInteractionFlag.TextBrowserInteraction)
         box.exec()
 
     # --- UI -----------------------------------------------------------------
